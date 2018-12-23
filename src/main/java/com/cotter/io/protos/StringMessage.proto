@@ -8,3 +8,7 @@ option java_outer_classname = "SimpleMessages";
 message SimpleString {
     string string_value = 1;
 }
+
+message SimpleInt {
+    int32 int_value = 1;
+}
