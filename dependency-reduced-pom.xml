@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.cotter.io</groupId>
+  <groupId>com.jxc454</groupId>
   <artifactId>models</artifactId>
   <name>models</name>
   <version>1.0-SNAPSHOT</version>
-  <url>http://www.gituhub.com</url>
+  <url>https://github.com/jxc454/models</url>
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
   <build>
     <extensions>
       <extension>
@@ -116,24 +123,10 @@
       </plugin>
     </plugins>
   </build>
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-      <exclusions>
-        <exclusion>
-          <artifactId>hamcrest-core</artifactId>
-          <groupId>org.hamcrest</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-  </dependencies>
   <properties>
     <protobuf.output.directory>${project.build.directory}/generated-sources</protobuf.output.directory>
     <maven-shade-plugin.version>3.2.1</maven-shade-plugin.version>
-    <protobuf.input.directory>${project.basedir}/src/main/java/com/cotter/io/protos</protobuf.input.directory>
+    <protobuf.input.directory>${project.basedir}/src/main/java/com/jxc454/protos</protobuf.input.directory>
     <maven.compiler.target>1.8</maven.compiler.target>
     <build-helper-maven-plugin.version>3.0.0</build-helper-maven-plugin.version>
     <os-maven-plugin.version>1.6.1</os-maven-plugin.version>

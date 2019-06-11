@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package simple;
 
-option java_package = "com.cotter.io.models";
+option java_package = "com.jxc454.models";
 option java_outer_classname = "SimpleMessages";
 
 message SimpleString {
@@ -11,4 +11,8 @@ message SimpleString {
 
 message SimpleInt {
     int32 int_value = 1;
+}
+
+message SimpleIntMap {
+    map<int32, int32> frequencies = 1;
 }
