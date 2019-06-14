@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package simple;
+
+option java_package = "com.jxc454.services";
+option java_outer_classname = "SimpleServices";
+
+import "../protos/SimpleMessages.proto";
+
+service Simple {
+    rpc getSimpleIntMap(SimpleIntMapRequest) returns (SimpleIntMapResponse) {}
+}
+
+message SimpleIntMapRequest {}
+
+message SimpleIntMapResponse {
+    SimpleIntMap intMap = 1;
+}
