@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.github.jxc454</groupId>
   <artifactId>udpmodels</artifactId>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.1</version>
   <name>udpmodels</name>
   <description>Simple Protobuf models for a simple demo application</description>
   <packaging>jar</packaging>
@@ -32,7 +31,7 @@
     <url>https://github.com/jxc454/udpmodels</url>
     <connection>scm:git:ssh://git@github.com/jxc454/udpmodels.git</connection>
     <developerConnection>scm:git:git@github.com:jxc454/udpmodels.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>udpmodels-1.0.1</tag>
   </scm>
 
   <url>https://github.com/jxc454/udpmodels</url>
@@ -134,22 +133,22 @@
             <phase>generate-sources</phase>
             <configuration>
               <target>
-                <property name="protoc.filename" value="protoc-${protobuf.version}-${os.detected.classifier}.exe"/>
-                <property name="protoc.filepath" value="${project.build.directory}/${protoc.filename}"/>
-                <chmod file="${protoc.filepath}" perm="ugo+rx"/>
+                <property name="protoc.filename" value="protoc-${protobuf.version}-${os.detected.classifier}.exe" />
+                <property name="protoc.filepath" value="${project.build.directory}/${protoc.filename}" />
+                <chmod file="${protoc.filepath}" perm="ugo+rx" />
                 <mkdir dir="${protobuf.output.directory}" />
                 <path id="protobuf.input.filepaths.path">
                   <fileset dir="${protobuf.input.directory}">
-                    <include name="**/*.proto"/>
+                    <include name="**/*.proto" />
                   </fileset>
                 </path>
-                <pathconvert pathsep=" " property="protobuf.input.filepaths" refid="protobuf.input.filepaths.path"/>
+                <pathconvert pathsep=" " property="protobuf.input.filepaths" refid="protobuf.input.filepaths.path" />
                 <exec executable="${protoc.filepath}" failonerror="true">
-                  <arg value="-I"/>
-                  <arg value="${protobuf.input.directory}"/>
-                  <arg value="--java_out"/>
-                  <arg value="${protobuf.output.directory}"/>
-                  <arg line="${protobuf.input.filepaths}"/>
+                  <arg value="-I" />
+                  <arg value="${protobuf.input.directory}" />
+                  <arg value="--java_out" />
+                  <arg value="${protobuf.output.directory}" />
+                  <arg line="${protobuf.input.filepaths}" />
                 </exec>
               </target>
             </configuration>
