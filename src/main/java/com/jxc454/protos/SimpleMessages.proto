@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package simple;
 
-option java_package = "com.jxc454.models";
+option java_package = "com.github.jxc454.models";
 option java_outer_classname = "SimpleMessages";
 
 message SimpleString {

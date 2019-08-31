@@ -5,12 +5,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.jxc454</groupId>
-  <artifactId>models</artifactId>
+  <artifactId>udpmodels</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>models</name>
+  <name>udpmodels</name>
   <packaging>jar</packaging>
 
-  <url>https://github.com/jxc454/models</url>
+  <url>https://github.com/jxc454/udpmodels</url>
 
   <licenses>
     <license>
@@ -45,6 +45,25 @@
       <version>${protobuf.version}</version>
     </dependency>
   </dependencies>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/
+      </url>
+    </repository>
+  </distributionManagement>
+
+  <scm>
+    <connection>scm:git:git://github.com/jxc454/udpmodels.git</connection>
+    <developerConnection>scm:git:git@github.com:jxc454/udpmodels.git</developerConnection>
+    <url>https://github.com/jxc454/udpmodels</url>
+    <tag>HEAD</tag>
+  </scm>
 
   <build>
     <extensions>
@@ -84,7 +103,7 @@
           </execution>
         </executions>
       </plugin>
-      <!-- compile proto buffer files using copied protoc binary -->
+      <!-- compile proto files using copied protoc binary -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-antrun-plugin</artifactId>
@@ -120,7 +139,7 @@
           </execution>
         </executions>
       </plugin>
-      <!-- add generated proto buffer classes into the package -->
+      <!-- add generated proto classes into the package -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>build-helper-maven-plugin</artifactId>
@@ -161,6 +180,39 @@
             </configuration>
           </execution>
         </executions>
+      </plugin>
+      <!-- mvn deploy plugin -->
+      <plugin>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>2.8.2</version>
+        <executions>
+          <execution>
+            <id>default-deploy</id>
+            <phase>deploy</phase>
+            <goals>
+              <goal>deploy</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- mvn release plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.5.3</version>
+        <configuration>
+          <localCheckout>true</localCheckout>
+          <pushChanges>false</pushChanges>
+          <mavenExecutorId>forked-path</mavenExecutorId>
+          <arguments>-Dgpg.passphrase=${gpg.passphrase}</arguments>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.apache.maven.scm</groupId>
+            <artifactId>maven-scm-provider-gitexe</artifactId>
+            <version>1.9.5</version>
+          </dependency>
+        </dependencies>
       </plugin>
     </plugins>
   </build>
