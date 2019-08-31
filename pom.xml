@@ -5,7 +5,7 @@
 
   <groupId>com.github.jxc454</groupId>
   <artifactId>udpmodels</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2-SNAPSHOT</version>
   <name>udpmodels</name>
   <description>Simple Protobuf models for a simple demo application</description>
   <packaging>jar</packaging>
@@ -31,7 +31,7 @@
     <url>https://github.com/jxc454/udpmodels</url>
     <connection>scm:git:ssh://git@github.com/jxc454/udpmodels.git</connection>
     <developerConnection>scm:git:git@github.com:jxc454/udpmodels.git</developerConnection>
-    <tag>udpmodels-1.0.1</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <url>https://github.com/jxc454/udpmodels</url>
